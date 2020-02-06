@@ -16,27 +16,53 @@ public class Test {
        /* AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(Appconfig.class);
         System.out.println(ac.getBean(Y.class));
         */
-        int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12, 13,14,15,16,17,18,19,20 };
-        System.out.println(binarySearch(arr,10));
+        String s="the sky is blue";
 
+        char[] s_arr = s.toCharArray();
+        int n = s_arr.length;
+        // 翻转这个数组
+        reverse(s_arr, 0, n - 1);
+        System.out.println(new String(s_arr));
+        // 翻转每个单词
+        word_reverse(s_arr, n);
+        System.out.println(new String(s_arr));
+        // 去除多余空格
+        //return clean_space(s_arr, n);
     }
 
-    public static int binarySearch(int [] arr,int findVal){
-        int low =0;
-        int high=arr.length-1;
-        while (low<=high){
-            int mid=low+(high-low)>>1;
-            if(arr[mid]==findVal){
-                return mid;
-            }
-            int midVal=arr[mid];
-            if(midVal>findVal){
-                high=mid-1;
-            }else{
-                low=mid+1;
-            }
+    private static void reverse(char[] s_arr, int i, int j) {
+        while (i < j) {
+            char t = s_arr[i];
+            s_arr[i++] = s_arr[j];
+            s_arr[j--] = t;
         }
-        return -1;
-
     }
+
+    private static void word_reverse(char[] s_arr, int n) {
+        int i = 0;
+        int j = 0;
+        while (j < n) {
+            // 找到第一个首字母
+            while (i < n && s_arr[i] == ' ') i++;
+            j = i;
+            // 末位置
+            while (j < n && s_arr[j] != ' ') j++;
+            reverse(s_arr, i, j - 1);
+            i = j;
+        }
+    }
+
+    private static String clean_space(char[] s_arr, int n) {
+        int i = 0;
+        int j = 0;
+        while (j < n) {
+            while (j < n && s_arr[j] == ' ') j++;
+            while (j < n && s_arr[j] != ' ') s_arr[i++] = s_arr[j++];
+            while (j < n && s_arr[j] == ' ') j++;
+            if (j < n) s_arr[i++] = ' ';
+        }
+        return new String(s_arr).substring(0, i);
+    }
+
+
 }

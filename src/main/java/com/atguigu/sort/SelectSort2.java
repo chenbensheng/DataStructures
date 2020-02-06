@@ -9,10 +9,8 @@ import java.util.Arrays;
 public class SelectSort2 {
 
     public static void main(String[] args) {
-        int [] arr=new int[200];
-        for(int i=0;i<200;i++){
-            arr[i]=(int) (Math.random()*200);
-        }
+        int [] arr= {50, 183, 19, 21, 140, 116, 89, 169, 67, 128, 19, 105, 71, 54, 63 };
+
         System.out.println("ÅÅÐòÇ°");
         System.out.println(Arrays.toString(arr));
 
@@ -23,21 +21,23 @@ public class SelectSort2 {
 
 
     public static void selectSort(int[] arr) {
-        for (int i=0;i<arr.length-1;i++){
-            int min=arr[i];
-            int minIndex=i;
-            for(int j=i+1;j<arr.length-1;j++){
-                if(min>arr[j]){
-                    min=arr[j];
-                    minIndex=j;
+
+        for (int i = 0; i < arr.length-1 ; i++) {
+            int midIndex=i;
+            for (int j = i+1; j < arr.length-1 ; j++) {
+
+                if(arr[j]<arr[midIndex]){
+                    midIndex=j;
                 }
             }
-            if(minIndex!=i){
-                arr[minIndex]=arr[i];
-                arr[i]=min;
+            if(i!=midIndex){
+               int temp=arr[i];
+               arr[i]=arr[midIndex];
+               arr[midIndex]=temp;
             }
-
         }
+
+
 
     }
 }
