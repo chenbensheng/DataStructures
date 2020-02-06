@@ -8,40 +8,33 @@ public class BubbleSort2 {
 
     @Test
     public void test(){
-        int arr[] = {1,2,3,4,5,6,7};
+        int arr[] = {-1,0,16,-5,3,8};
         System.out.println("排序前");
         System.out.println(Arrays.toString(arr));
         bubbleSort(arr);
 
-        System.out.println("排序后");
-        System.out.println(Arrays.toString(arr));
+
     }
 
 
-
     public void bubbleSort(int[] arr){
-        int temp=0;
-        //默认都是有序的~
-        boolean flag=false;
-        int lastExchangeIndex = 0;
-        int unorderedBorder = arr.length-1;
         for (int i = 0; i <arr.length-1 ; i++) {
-
-            for (int j = 0; j <unorderedBorder ; j++) {
+            //有序标志--默认为true
+            boolean isSorted=true;
+            for (int j = 0; j < arr.length-i-1; j++) {
                 if(arr[j]>arr[j+1]){
-                    flag=true;
-                    temp=arr[j];
+                    int temp=arr[j];
                     arr[j]=arr[j+1];
                     arr[j+1]=temp;
-                    //记录下最后一次交换元素的位置
-                    lastExchangeIndex=j;
+                    isSorted=false;
                 }
             }
-            unorderedBorder=lastExchangeIndex;
-            //flag=false 说明没有交换过
-            if(!flag){
+            //如果是有序的---则不进行下一轮排序
+            if(isSorted){
                 break;
             }
         }
+        System.out.println("排序后");
+        System.out.println(Arrays.toString(arr));
     }
 }
