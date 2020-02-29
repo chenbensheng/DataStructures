@@ -5,21 +5,22 @@ import java.util.Map;
 import java.util.Stack;
 
 
-/** µÚ20Ìâ--https://leetcode-cn.com/problems/valid-parentheses/
- * ¸ø¶¨Ò»¸öÖ»°üÀ¨ '('£¬')'£¬'{'£¬'}'£¬'['£¬']' µÄ×Ö·û´®£¬ÅÐ¶Ï×Ö·û´®ÊÇ·ñÓÐÐ§¡£
+/**
+ * ï¿½ï¿½20ï¿½ï¿½--https://leetcode-cn.com/problems/valid-parentheses/
+ * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ '('ï¿½ï¿½')'ï¿½ï¿½'{'ï¿½ï¿½'}'ï¿½ï¿½'['ï¿½ï¿½']' ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
  */
 public class ValidParentheses {
 
-    private static final Map<Character,Character> map = new HashMap<Character,Character>(){{
-        put('{','}');
-        put('[',']');
-        put('(',')');
-        put('?','?');
+    private static final Map<Character, Character> map = new HashMap<Character, Character>() {{
+        put('{', '}');
+        put('[', ']');
+        put('(', ')');
+        put('?', '?');
     }};
 
 
     public static void main(String[] args) {
-        String s="()[[]]{}";
+        String s = "()[[]]{}";
         System.out.println(isValid(s));
     }
 
@@ -32,18 +33,18 @@ public class ValidParentheses {
         return s.length()==0;
     }*/
 
-    public static boolean isValid(String s){
-        Stack<Character> stack=new Stack<Character>();
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < s.length(); i++) {
-            char c=s.charAt(i);
-            if(c=='('||c=='['||c=='{'){
+            char c = s.charAt(i);
+            if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
-            }else{
-                if(c==')'&& stack.peek()=='('||
-                        c==']'&& stack.peek()=='['||
-                        c=='}'&& stack.peek()=='{'){
+            } else {
+                if (c == ')' && stack.peek() == '(' ||
+                        c == ']' && stack.peek() == '[' ||
+                        c == '}' && stack.peek() == '{') {
                     stack.pop();
-                }else{
+                } else {
                     return false;
                 }
             }

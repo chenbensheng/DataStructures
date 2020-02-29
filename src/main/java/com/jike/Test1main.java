@@ -3,10 +3,10 @@ package com.jike;
 public class Test1main {
 
     public static void main(String[] args) {
-        runnable runner=new runnable();
-        Thread th1= new Thread(runner,"ĞÂÏß³Ì");
+        runnable runner = new runnable();
+        Thread th1 = new Thread(runner, "ï¿½ï¿½ï¿½ß³ï¿½");
 
-        //Çø·ÖÒÔÏÂÈıÖÖÇé¿ö
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         System.out.println("th1.start():");
         th1.start();
         //1
@@ -20,12 +20,12 @@ public class Test1main {
 
     }
 
-    public static class runnable implements Runnable{
-        private int food=10;
+    public static class runnable implements Runnable {
+        private int food = 10;
 
         public void run() {
-            for(int i=0;i<3;i++) {
-                System.out.println("Ïß³ÌÃû£º"+Thread.currentThread().getName()+" food:"+food--);
+            for (int i = 0; i < 3; i++) {
+                System.out.println("ï¿½ß³ï¿½ï¿½ï¿½ï¿½ï¿½" + Thread.currentThread().getName() + " food:" + food--);
             }
         }
     }

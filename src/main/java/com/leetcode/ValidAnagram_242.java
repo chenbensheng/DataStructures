@@ -1,24 +1,25 @@
 package com.leetcode;
 
 /**
- * ¸ø¶¨Á½¸ö×Ö·û´® s ºÍ t £¬±àÐ´Ò»¸öº¯ÊýÀ´ÅÐ¶Ï t ÊÇ·ñÊÇ s µÄ×ÖÄ¸ÒìÎ»´Ê¡£
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ s ï¿½ï¿½ t ï¿½ï¿½ï¿½ï¿½Ð´Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ t ï¿½Ç·ï¿½ï¿½ï¿½ s ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½Î»ï¿½Ê¡ï¿½
+ * s = "anagram", t = "nagaram"
  */
 public class ValidAnagram_242 {
 
     public boolean isAnagram(String s, String t) {
-        if(s.length()!=t.length()){
+        if (s.length() != t.length()) {
             return false;
         }
-        int[] counter= new int[26];
-        for (int i = 0; i <s.length() ; i++) {
-            counter[s.charAt(i)-'a']++;
-            counter[t.charAt(i)-'a']--;
+        int[] counter = new int[26];
+        for (int i = 0; i < s.length(); i++) {
+            counter[s.charAt(i) - 'a']++;
+            counter[t.charAt(i) - 'a']--;
 
         }
 
-        for (int count:counter) {
-            if(count!=0){
-               return false;
+        for (int count : counter) {
+            if (count != 0) {
+                return false;
             }
         }
         return true;

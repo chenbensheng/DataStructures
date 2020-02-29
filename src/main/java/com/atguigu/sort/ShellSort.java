@@ -6,17 +6,14 @@ import java.util.Date;
 
 public class ShellSort {
 
-	/*	增量increment的取法有各种方案。最初shell提出取increment=n/2向下取整，increment=increment/2向下取整，直到increment=1。
-	但由于直到最后一步，在奇数位置的元素才会与偶数位置的元素进行比较，这样使用这个序列的效率会很低。
-	后来Knuth提出取increment=n/3向下取整+1.还有人提出都取奇数为好，也有人提出increment互质为好。应用不同的序列会使希尔排序算法的性能有很大的差异。*/
 	public static void main(String[] args) {
-		int[] arr = { 8, 9, 1, 7, 2, 3, 5, 4, 6, 0 };
+		//int[] arr = { 8, 9, 1, 7, 2, 3, 5, 4, 6, 0 };
 		
 		// 创建要给80000个的随机的数组
-		/*int[] arr = new int[8000000];
+		int[] arr = new int[8000000];
 		for (int i = 0; i < 8000000; i++) {
 			arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
-		}*/
+		}
 
 		System.out.println("排序前");
 		Date data1 = new Date();
@@ -24,8 +21,8 @@ public class ShellSort {
 		String date1Str = simpleDateFormat.format(data1);
 		System.out.println("排序前的时间是=" + date1Str);
 		
-		shellSort(arr); //交换式
-		//shellSort2(arr);//移位方式
+		//shellSort(arr); //交换式
+		shellSort2(arr);//移位方式
 		
 		Date data2 = new Date();
 		String date2Str = simpleDateFormat.format(data2);

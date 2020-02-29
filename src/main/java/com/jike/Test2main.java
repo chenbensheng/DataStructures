@@ -3,14 +3,14 @@ package com.jike;
 public class Test2main {
 
     public static void main(String[] args) {
-        Thread thread= new Thread(){
+        Thread thread = new Thread() {
 
-            public void run(){
-                System.out.println("ceshi----"+Thread.currentThread().getName());
+            public void run() {
+                System.out.println("ceshi----" + Thread.currentThread().getName());
             }
         };
-        thread.run(); //Ö÷Ïß³ÌÖ´ÐÐ     ceshi----main
-        thread.start();//ÐÂ´´½¨Ïß³ÌÖ´ÐÐ ceshi----Thread-0
+        thread.run(); //ï¿½ï¿½ï¿½ß³ï¿½Ö´ï¿½ï¿½     ceshi----main
+        thread.start();//ï¿½Â´ï¿½ï¿½ï¿½ï¿½ß³ï¿½Ö´ï¿½ï¿½ ceshi----Thread-0
 
     }
 }

@@ -86,13 +86,14 @@ class ArrayQueue {
 	}
 
 	// 添加数据到队列
-	public void addQueue(int n){
-		if(isFull()){
-			System.out.println("队列已满");
+	public void addQueue(int n) {
+		// 判断队列是否满
+		if (isFull()) {
+			System.out.println("队列满，不能加入数据~");
 			return;
 		}
-		rear++;
-		arr[rear]=n;
+		rear++; // 让rear 后移
+		arr[rear] = n;
 	}
 
 	// 获取队列的数据, 出队列

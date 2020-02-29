@@ -9,7 +9,7 @@ public class Y {
     @Autowired
     Z z;
 
-    public Y(){
+    public Y() {
         System.out.println("init y");
     }
 }

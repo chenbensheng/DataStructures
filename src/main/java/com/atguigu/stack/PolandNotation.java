@@ -186,16 +186,22 @@ class Operation {
 	//写一个方法，返回对应的优先级数字
 	public static int getValue(String operation) {
 		int result = 0;
-		if ("+".equals(operation)) {
+		switch (operation) {
+		case "+":
 			result = ADD;
-		} else if ("-".equals(operation)) {
+			break;
+		case "-":
 			result = SUB;
-		} else if ("*".equals(operation)) {
+			break;
+		case "*":
 			result = MUL;
-		} else if ("/".equals(operation)) {
+			break;
+		case "/":
 			result = DIV;
-		} else {
+			break;
+		default:
 			System.out.println("不存在该运算符" + operation);
+			break;
 		}
 		return result;
 	}

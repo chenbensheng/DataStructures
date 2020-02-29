@@ -19,7 +19,8 @@ public class HashTabDemo {
 			System.out.println("exit: 退出系统");
 			
 			key = scanner.next();
-			if ("add".equals(key)) {
+			switch (key) {
+			case "add":
 				System.out.println("输入id");
 				int id = scanner.nextInt();
 				System.out.println("输入名字");
@@ -27,16 +28,20 @@ public class HashTabDemo {
 				//创建 雇员
 				Emp emp = new Emp(id, name);
 				hashTab.add(emp);
-			} else if ("list".equals(key)) {
+				break;
+			case "list":
 				hashTab.list();
-			} else if ("find".equals(key)) {
-				int id;
+				break;
+			case "find":
 				System.out.println("请输入要查找的id");
 				id = scanner.nextInt();
 				hashTab.findEmpById(id);
-			} else if ("exit".equals(key)) {
+				break;
+			case "exit":
 				scanner.close();
 				System.exit(0);
+			default:
+				break;
 			}
 		}
 		

@@ -203,7 +203,7 @@ public class HuffmanCode {
 		}
 		
 		//创建要给集合，存放byte
-		List<Byte> list = new ArrayList();
+		List<Byte> list = new ArrayList<>();
 		//i 可以理解成就是索引,扫描 stringBuilder 
 		for(int  i = 0; i < stringBuilder.length(); ) {
 			int count = 1; // 小的计数器
@@ -388,9 +388,9 @@ public class HuffmanCode {
 		
 		//1创建一个ArrayList
 		ArrayList<Node> nodes = new ArrayList<Node>();
-
+		
 		//遍历 bytes , 统计 每一个byte出现的次数->map[key,value]
-		Map<Byte, Integer> counts = new HashMap<Byte, Integer>();
+		Map<Byte, Integer> counts = new HashMap<>();
 		for (byte b : bytes) {
 			Integer count = counts.get(b);
 			if (count == null) { // Map还没有这个字符数据,第一次
@@ -452,6 +452,7 @@ class Node implements Comparable<Node>  {
 		this.data = data;
 		this.weight = weight;
 	}
+	@Override
 	public int compareTo(Node o) {
 		// 从小到大排序
 		return this.weight - o.weight;

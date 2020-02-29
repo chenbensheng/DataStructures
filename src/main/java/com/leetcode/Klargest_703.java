@@ -12,7 +12,7 @@ public class Klargest_703 {
     final int k;
 
     public static void main(String[] args) {
-        int[] arr =  {4,5,8,2};
+        int[] arr = {4, 5, 8, 2};
         Klargest_703 kthLargest = new Klargest_703(3, arr);
         //System.out.println(kthLargest.add(3));
         //System.out.println(kthLargest.add(30));
@@ -21,20 +21,21 @@ public class Klargest_703 {
 
 
     public Klargest_703(int k, int[] nums) {
-       this.k=k;
-       this.q=new PriorityQueue<Integer>(k);
-       for (int n:nums){
-           if(q.size()<k){
-               q.offer(n);
-           }else if(q.peek()<n){
-               q.poll();
-               q.offer(n);
-           };
-       }
+        this.k = k;
+        this.q = new PriorityQueue<Integer>(k);
+        for (int n : nums) {
+            if (q.size() < k) {
+                q.offer(n);
+            } else if (q.peek() < n) {
+                q.poll();
+                q.offer(n);
+            }
+            ;
+        }
     }
 
     public int get() {
-        return  q.peek();
+        return q.peek();
     }
 
 
@@ -42,13 +43,14 @@ public class Klargest_703 {
      * peek()  获取队首的元素，但不从队列中移除
      * poll()  获取队首的元素，并从队列中移除
      * offer() 添加一个元素到队尾
+     *
      * @param n
      * @return
      */
     public int add(int n) {
-        if(q.size()<k){
+        if (q.size() < k) {
             q.offer(n);
-        }else if(q.peek()<n){
+        } else if (q.peek() < n) {
             q.poll();
             q.offer(n);
         }

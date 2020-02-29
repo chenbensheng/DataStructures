@@ -35,7 +35,7 @@ public class ReversePolishMultiCalc {
     static final int LEVEL_HIGH = Integer.MAX_VALUE;
 
 
-    static Stack<String> stack = new Stack<String>();
+    static Stack<String> stack = new Stack<>();
     static List<String> data = Collections.synchronizedList(new ArrayList<String>());
 
     /**
@@ -133,7 +133,7 @@ public class ReversePolishMultiCalc {
         }
         //如果栈里还有元素，此时元素需要依次出栈入列，可以想象栈里剩下栈顶为/，栈底为+，应该依次出栈入列，可以直接翻转整个stack 添加到队列
         Collections.reverse(stack);
-        data.addAll(new ArrayList(stack));
+        data.addAll(new ArrayList<>(stack));
 
         System.out.println(data);
         return data;
@@ -154,7 +154,7 @@ public class ReversePolishMultiCalc {
             d = Double.valueOf(list.get(0));
             return d;
         }
-        ArrayList<String> list1 = new ArrayList<String>();
+        ArrayList<String> list1 = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             list1.add(list.get(i));
             if(isSymbol(list.get(i))){
@@ -179,16 +179,12 @@ public class ReversePolishMultiCalc {
      */
     public static Double doTheMath(String s1,String s2,String symbol){
         Double result ;
-        if (ADD.equals(symbol)) {
-            result = Double.valueOf(s1) + Double.valueOf(s2);
-        } else if (MINUS.equals(symbol)) {
-            result = Double.valueOf(s1) - Double.valueOf(s2);
-        } else if (TIMES.equals(symbol)) {
-            result = Double.valueOf(s1) * Double.valueOf(s2);
-        } else if (DIVISION.equals(symbol)) {
-            result = Double.valueOf(s1) / Double.valueOf(s2);
-        } else {
-            result = null;
+        switch (symbol){
+            case ADD : result = Double.valueOf(s1) + Double.valueOf(s2); break;
+            case MINUS : result = Double.valueOf(s1) - Double.valueOf(s2); break;
+            case TIMES : result = Double.valueOf(s1) * Double.valueOf(s2); break;
+            case DIVISION : result = Double.valueOf(s1) / Double.valueOf(s2); break;
+            default : result = null;
         }
         return result;
 

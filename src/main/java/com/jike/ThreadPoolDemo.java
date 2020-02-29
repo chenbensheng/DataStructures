@@ -3,14 +3,14 @@ package com.jike;
 import java.util.concurrent.*;
 
 /**
- * ÈçºÎÊµÏÖ´¦ÀíÏß³ÌµÄ·µ»ØÖµ£¿
+ * ï¿½ï¿½ï¿½Êµï¿½Ö´ï¿½ï¿½ï¿½ï¿½ß³ÌµÄ·ï¿½ï¿½ï¿½Öµï¿½ï¿½
  */
 public class ThreadPoolDemo {
 
     public static void main(String[] args) {
         ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(5);
         Future<String> future = newFixedThreadPool.submit(new MyCallable());
-        if(!future.isDone()){
+        if (!future.isDone()) {
             System.out.println("task---");
         }
         try {

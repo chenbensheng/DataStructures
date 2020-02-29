@@ -5,74 +5,77 @@ import org.junit.Test;
 import java.util.HashMap;
 
 /**
- * ÓÐn²½Ì¨½×£¬Ò»´ÎÖ»ÄÜÉÏ1²½»òÕß2²½£¬Ò»¹²ÓÐ¶àÉÙÖÖ×ß·¨
+ * ï¿½ï¿½nï¿½ï¿½Ì¨ï¿½×£ï¿½Ò»ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß·ï¿½
  */
 public class TestStep {
 
     @Test
-    public void test(){
-        long start=System.currentTimeMillis();
+    public void test() {
+        long start = System.currentTimeMillis();
         System.out.println(f2(50));
         //System.out.println(loop(10));
-        long end=System.currentTimeMillis();
-        System.out.println(end-start);
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
     }
 
     /**
-     * µÝ¹é
+     * ï¿½Ý¹ï¿½
+     *
      * @param n
      * @return
      */
-    public int f(int n){
-        if(n<1){
-            throw new IllegalArgumentException("n²»ÄÜÐ¡ÓÚ1");
+    public int f(int n) {
+        if (n < 1) {
+            throw new IllegalArgumentException("nï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½1");
         }
-        if(n==1||n==2){
+        if (n == 1 || n == 2) {
             return n;
         }
-        return f(n-2)+f(n-1);
+        return f(n - 2) + f(n - 1);
     }
 
     /**
-     * µÝ¹é--¼ÓHashMap ±ÜÃâÖØ¸´¼ÆËã
+     * ï¿½Ý¹ï¿½--ï¿½ï¿½HashMap ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
      * @param n
      * @return
      */
-    public long f2(int n){
-        if(n<1){
-            throw new IllegalArgumentException("n²»ÄÜÐ¡ÓÚ1");
+    public long f2(int n) {
+        if (n < 1) {
+            throw new IllegalArgumentException("nï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½1");
         }
-        if(n==1||n==2){
+        if (n == 1 || n == 2) {
             return n;
         }
-        HashMap<Integer,Long> hashMap=new HashMap();
-        if(hashMap.containsKey(n)){
-         return  hashMap.get(n);
+        HashMap<Integer, Long> hashMap = new HashMap();
+        if (hashMap.containsKey(n)) {
+            return hashMap.get(n);
         }
-        long nn=f(n-2)+f(n-1);
-        hashMap.put(n,nn);
+        long nn = f(n - 2) + f(n - 1);
+        hashMap.put(n, nn);
         return nn;
     }
 
     /**
-     * µü´úÑ­»·
+     * ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
+     *
      * @param n
      * @return
      */
-    public long loop(int n){
-        if(n==1||n==2){
+    public long loop(int n) {
+        if (n == 1 || n == 2) {
             return n;
         }
-        //³õÊ¼»¯Îª×ßµ½µÚ2¼¶Ì¨½×µÄ×ß·¨
-        long one=2;
-        //³õÊ¼»¯Îª×ßµ½µÚ1¼¶Ì¨½×µÄ×ß·¨
-        long two=1;
-        long sum=0;
-        for (int i = 3; i <n ; i++) {
-            //×îºó¿ç2²½+×îºó¿ç1²½µÄ×ß·¨
-            sum=two+one;
-            two=one;
-            one=sum;
+        //ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ßµï¿½ï¿½ï¿½2ï¿½ï¿½Ì¨ï¿½×µï¿½ï¿½ß·ï¿½
+        long one = 2;
+        //ï¿½ï¿½Ê¼ï¿½ï¿½Îªï¿½ßµï¿½ï¿½ï¿½1ï¿½ï¿½Ì¨ï¿½×µï¿½ï¿½ß·ï¿½
+        long two = 1;
+        long sum = 0;
+        for (int i = 3; i < n; i++) {
+            //ï¿½ï¿½ï¿½ï¿½2ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ß·ï¿½
+            sum = two + one;
+            two = one;
+            one = sum;
         }
         return sum;
     }
