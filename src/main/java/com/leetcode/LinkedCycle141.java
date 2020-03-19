@@ -1,6 +1,5 @@
 package com.leetcode;
 
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 判断链表中是否有环。

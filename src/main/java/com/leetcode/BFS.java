@@ -22,22 +22,24 @@ public class BFS {
             }
         }
     }
-
-    public void depthTraversal(TreeNode node){
-        if(node==null){
+    //前序遍历--根 左  右
+    public void depthTraversal(TreeNode root){
+        if(root==null){
             System.out.print("empty tree");
             return;
         }
         Stack<TreeNode> stack = new Stack<TreeNode>();
-        stack.push(node);
-        while(!stack.isEmpty()){
-            TreeNode rnode = stack.pop();
-            System.out.print(rnode.val);
-            if(rnode.right!=null){
-                stack.push(rnode.right);
+        TreeNode treeNode=root;
+        while(treeNode!=null||!stack.isEmpty()){
+
+            while(treeNode!=null){
+                System.out.println(treeNode.val);
+                stack.push(treeNode);
+                treeNode=treeNode.left;
             }
-            if(rnode.left!=null){
-                stack.push(rnode.left);
+            if(!stack.isEmpty()){
+                treeNode=stack.pop();
+                treeNode=treeNode.right;
             }
         }
     }

@@ -38,12 +38,10 @@ public class Klargest_703 {
         return q.peek();
     }
 
-
     /**
      * peek()  获取队首的元素，但不从队列中移除
      * poll()  获取队首的元素，并从队列中移除
      * offer() 添加一个元素到队尾
-     *
      * @param n
      * @return
      */
