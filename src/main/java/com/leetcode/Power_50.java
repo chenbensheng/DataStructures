@@ -3,12 +3,29 @@ package com.leetcode;
 public class Power_50 {
 
     public static void main(String[] args) {
-        System.out.println(myPow2(2, 10));
+        System.out.println(quickMul(2, 10));
     }
 
-    //分治实现
-    public static double myPow(double x, int n) {
 
+
+    public static double quickMul(double x, long N) {
+        double ans = 1.0;
+        while (N > 0) {
+            //奇数 多一个x
+            if ((N & 1) ==1) {
+                ans=ans * x;
+            }
+            x *= x;
+            //右移一位  折半
+            N >>= 1;
+        }
+        return ans;
+    }
+
+
+
+    //递归---分治实现
+    public static double myPow(double x, int n) {
         if(n==0){
             return 1;
         }

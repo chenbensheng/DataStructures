@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
-public class Test {
+public class TestApplication {
 
     public static void main(String[] args) {
 
