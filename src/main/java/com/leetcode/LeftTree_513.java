@@ -1,7 +1,7 @@
 package com.leetcode;
 
 /**
- * DFS  广度优先遍历
+ * DFS  骞垮害浼樺厛閬嶅巻
  */
 public class LeftTree_513 {
 

@@ -9,14 +9,30 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		//int arr[] = { 1, 8, 10, 89,1000,1000, 1234 };
 		int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 , 11, 12, 13,14,15,16,17,18,19,20 };
-		
 
-		//
-//		int resIndex = binarySearch(arr, 0, arr.length - 1, 1000);
-//		System.out.println("resIndex=" + resIndex);
-		
-		List<Integer> resIndexList = binarySearch2(arr, 0, arr.length - 1, 1);
-		System.out.println("resIndexList=" + resIndexList);
+		int resIndex = binarySearch(arr, 0, arr.length - 1, 15);
+		System.out.println("resIndex=" + resIndex);
+
+		System.out.println(binSearch(arr, 15));
+
+//		List<Integer> resIndexList = binarySearch2(arr, 0, arr.length - 1, 1);
+//		System.out.println("resIndexList=" + resIndexList);
+	}
+
+	public static int binSearch(int[] arr,int findVal){
+		int left = 0;
+		int right =arr.length;
+		while (left<=right){
+			int mid = (right-left>>1)+left;
+			if(findVal==arr[mid]){
+				return mid;
+			}else if(findVal < arr[mid]){
+				right=mid-1;
+			}else{
+				left=mid+1;
+			}
+		}
+		return left;
 	}
 
 	// 二分查找算法
@@ -37,7 +53,8 @@ public class BinarySearch {
 		if (left > right) {
 			return -1;
 		}
-		int mid = (left + right) / 2;
+
+		int mid=left +((right-left)>>1);
 		int midVal = arr[mid];
 
 		if (findVal > midVal) { // 向 右递归

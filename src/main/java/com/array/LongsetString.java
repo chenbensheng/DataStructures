@@ -8,7 +8,7 @@ package com.array;
 public class LongsetString {
 
     public static void main(String[] args) {
-        String[] strs={"abb","ab"};
+        String[] strs={"abb","ab","b"};
         System.out.println(longestCommonPrefix(strs));
 
     }
@@ -18,7 +18,7 @@ public class LongsetString {
         if(strs.length == 0) {
             return "";
         }
-        //默认第一个字符串 是最长公共前缀
+        //默认第一个字符串 是最长公共前缀  i--表示第几位
         for (int i = 0; i <strs[0].length() ; i++) {
             char c= strs[0].charAt(i);
             for (int j = 1; j <strs.length ; j++) {
