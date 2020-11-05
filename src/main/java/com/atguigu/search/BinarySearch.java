@@ -23,7 +23,7 @@ public class BinarySearch {
 		int left = 0;
 		int right =arr.length;
 		while (left<=right){
-			int mid = (right-left>>1)+left;
+			int mid = ((right-left)>>1)+left;
 			if(findVal==arr[mid]){
 				return mid;
 			}else if(findVal < arr[mid]){

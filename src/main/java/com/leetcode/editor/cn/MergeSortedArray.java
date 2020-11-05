@@ -49,25 +49,20 @@ class Solution {
      * 输出：[1,2,2,3,5,6]
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-
-        // Make a copy of nums1.
-        int [] nums1_copy = new int[m];
-        System.arraycopy(nums1, 0, nums1_copy, 0, m);
-
-        int p1 = 0;
-        int p2 = 0;
-
-        int p = 0;
-        // Compare elements from nums1_copy and nums2
-        // and add the smallest one into nums1.
-        while ((p1 < m) && (p2 < n))
-            nums1[p++] = (nums1_copy[p1] < nums2[p2]) ? nums1_copy[p1++] : nums2[p2++];
-
-        // if there are still elements to add
-        if (p1 < m)
-            System.arraycopy(nums1_copy, p1, nums1, p1 + p2, m + n - p1 - p2);
-        if (p2 < n)
-            System.arraycopy(nums2, p2, nums1, p1 + p2, m + n - p1 - p2);
+        int index1=m-1;
+        int index2=n-1;
+        int indexMerge=m+n-1;
+        while(index1>=0||index2>=0){
+            if (index1 < 0) {
+                nums1[indexMerge--] = nums2[index2--];
+            } else if (index2 < 0) {
+                nums1[indexMerge--] = nums1[index1--];
+            } else if (nums1[index1] > nums2[index2]) {
+                nums1[indexMerge--] = nums1[index1--];
+            } else {
+                nums1[indexMerge--] = nums2[index2--];
+            }
+        }
 
     }
 }

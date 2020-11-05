@@ -1,7 +1,7 @@
 package com.leetcode;
 
 /**
- * @Author: chenbensheng
+ * @Author: chenbensheng  有序数组
  * @CreateDate: 2020/7/5 23:57
  */
 public class TwoSum_167 {
