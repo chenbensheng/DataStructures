@@ -1,5 +1,7 @@
 package com.atguigu.sort;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  *  归并排序
  * ①把 n 个记录看成 n 个长度为1的有序子表；
@@ -9,34 +11,46 @@ package com.atguigu.sort;
  * @CreateDate: 2020/11/5 20:46
  */
 public class MergeSort {
-
-    public void mergeSort(int [] a,int start,int end){
-        if(start<end){//当子序列中只有一个元素时结束递归
-            int mid=(start+end)/2;//划分子序列
-            mergeSort(a, start, mid);//对左侧子序列进行递归排序
-            mergeSort(a, mid+1, end);//对右侧子序列进行递归排序
-            merge(a, start, mid, end);//合并
+    public static void main(String[] args) {
+        int[] arr = {11,44,23,67,88,65,34,48,9,12};
+        mergeSort(arr,0,arr.length-1);
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" ");
         }
     }
 
-    //两路归并算法，两个排好序的子序列合并为一个子序列
-    public void merge(int []a,int left,int mid,int right){
-        int []tmp=new int[a.length];//辅助数组
-        int p1=left,p2=mid+1,k=left;//p1、p2是检测指针，k是存放指针
+    public static void mergeSort(int[] arr,int low,int high){
+        if(low<high){
+            int mid = (low+high)/2;
+            int[] tmp = new int[arr.length];    //新建一个临时数组存放
+            mergeSort(arr,low,mid); //对左边序列进行归并排序
+            mergeSort(arr,mid+1,high);  //对右边序列进行归并排序
+            merge(arr,low,mid,high,tmp);    //合并两个有序序列
+        }
+    }
 
-        while(p1<=mid && p2<=right){
-            if(a[p1]<=a[p2])
-                tmp[k++]=a[p1++];
-            else
-                tmp[k++]=a[p2++];
+    public static void merge(int[] arr,int low,int mid,int high,int[] tmp){
+        int i = 0;
+        int j = low,k = mid+1;  //左边序列和右边序列起始索引
+        while(j <= mid && k <= high){
+            if(arr[j] < arr[k]){
+                tmp[i++] = arr[j++];
+            }else{
+                tmp[i++] = arr[k++];
+            }
+        }
+        //若左边序列还有剩余，则将其全部拷贝进tmp[]中
+        while(j <= mid){
+            tmp[i++] = arr[j++];
+        }
+        //若右边序列还有剩余，则将其全部拷贝进tmp[]中
+        while(k <= high){
+            tmp[i++] = arr[k++];
         }
 
-        while(p1<=mid) tmp[k++]=a[p1++];//如果第一个序列未检测完，直接将后面所有元素加到合并的序列中
-        while(p2<=right) tmp[k++]=a[p2++];//同上
-
-        //复制回原素组
-        for (int i = left; i <=right; i++)
-            a[i]=tmp[i];
+        for(int t=0;t<i;t++){
+            arr[low+t] = tmp[t];
+        }
     }
 
 }

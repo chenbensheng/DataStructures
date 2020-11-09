@@ -40,27 +40,28 @@ public class DiameterOfBinaryTree{
  */
 class Solution {
     //设置全局变量ans
-    int max=0;
+    int max = 0;
+
     public int diameterOfBinaryTree(TreeNode root) {
         depth(root);
         return max;
     }
 
     public int depth(TreeNode root) {
-        if(root==null){
+        if (root == null) {
             return 0;
         }
-        int l= depth(root.left);
-        int r=depth(root.right);
+        int l = depth(root.left);
+        int r = depth(root.right);
         //可能不过很节点
-        if(l+r>max){
-            max=l+r;
+        if (l + r > max) {
+            max = l + r;
         }
         //该节点为根的子树的深度--Math.max(l,r)+1;
-        return Math.max(l,r)+1;
+        return Math.max(l, r) + 1;
     }
 
-
+}
 
 //leetcode submit region end(Prohibit modification and deletion)
 
