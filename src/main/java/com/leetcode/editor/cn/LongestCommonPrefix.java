@@ -33,29 +33,59 @@ public class LongestCommonPrefix{
     //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
        /*
-        纵向比较
+        方法1--纵向比较
         时间复杂度：O(mn)O(mn)，其中 mm 是字符串数组中的字符串的平均长度，nn 是字符串的数量。
         最坏情况下，字符串数组中的每个字符串的每个字符都会被比较一次。
-        空间复杂度：O(1)O(1)。使用的额外空间复杂度为常数。
+        空间复杂度：O(1)。使用的额外空间复杂度为常数。
         */
     public String longestCommonPrefix(String[] strs) {
         if(strs==null || strs.length==0){
             return "";
         }
-        int length=strs[0].length();
-        int count=strs.length;
-        for (int i = 0; i <length ; i++) {
-            char a=strs[0].charAt(i);
-            for (int j = 1; j <count ; j++) {
-                //第几个最长公共子串==下面的字符串长度
-                if(i==strs[j].length()||a!=strs[j].charAt(i)){
+        int length =strs[0].length();
+        int count = strs.length;
+        for (int i = 0; i < length ; i++) {
+            char a = strs[0].charAt(i);
+            for (int j = 1 ; j < count ; j++) {
+                if(i==strs[j].length()||strs[j].charAt(i)!=a){
                     return strs[0].substring(0,i);
                 }
             }
         }
         return strs[0];
     }
-}
+
+    //分治法
+    public String longestCommonPrefix2(String[] strs) {
+        if(strs==null || strs.length==0){
+            return "";
+        }else{
+            return commonPrefix2(strs,0,strs.length);
+        }
+    }
+
+    public String commonPrefix2(String[] strs,int start,int end) {
+        if(start==end){
+            return strs[start];
+        }else{
+            int mid=(end-start)/2 + start;
+            String lcpLeft= commonPrefix2(strs,start,mid);
+            String lcpRight= commonPrefix2(strs,mid,end);
+            return commonPrefix(lcpLeft,lcpRight);
+        }
+    }
+
+    public String commonPrefix(String lcpLeft,String  lcpRight) {
+        int minLength = Math.min(lcpLeft.length(),lcpRight.length());
+        for (int i = 0; i < minLength ; i++) {
+            if(lcpLeft.charAt(i)!=lcpRight.charAt(i)){
+                return lcpLeft.substring(0,i);
+            }
+        }
+        return lcpLeft.substring(0,minLength);
+    }
+
+   }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

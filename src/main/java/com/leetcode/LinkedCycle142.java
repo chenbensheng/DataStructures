@@ -1,11 +1,30 @@
 package com.leetcode;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
- * £¬·µ»ØÁ´±í¿ªÊ¼Èë»·µÄµÚÒ»¸ö½Úµã¡£ Èç¹ûÁ´±íÎŞ»·£¬Ôò·µ»Ø null
- * slowÖ¸Õë Î»ÖÃ²»±ä £¬½«fastÖ¸ÕëÖØĞÂ Ö¸ÏòÁ´±íÍ·²¿½Úµã £»slowºÍfastÍ¬Ê±Ã¿ÂÖÏòÇ°×ß  ²½£»
+ * ç»™å®šä¸€ä¸ªé“¾è¡¨ï¼Œè¿”å›é“¾è¡¨å¼€å§‹å…¥ç¯çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ã€‚ å¦‚æœé“¾è¡¨æ— ç¯ï¼Œåˆ™è¿”å› nullã€‚
+ *
  */
 public class LinkedCycle142 {
+    //å“ˆå¸Œè¡¨ æ—¶é—´å¤æ‚åº¦ O(N)  ç©ºé—´å¤æ‚åº¦ O(N)
+    public ListNode detectCycle1(ListNode head) {
+        ListNode pos = head;
+        Set<ListNode> visted = new HashSet<>();
+        while (pos!=null){
+           if(visted.contains(pos)){
+               return pos;
+           }
+           visted.add(pos);
+           pos=pos.next;
+        }
+        return null;
+    }
 
+
+    //æ—¶é—´å¤æ‚åº¦ O(N)  ç©ºé—´å¤æ‚åº¦ O(1)
     public ListNode detectCycle(ListNode head) {
         if (head == null || head.next == null) {
             return null;
@@ -19,7 +38,7 @@ public class LinkedCycle142 {
             fast = fast.next.next;
             slow = slow.next;
         }
-
+        //å¤´ç»“ç‚¹ï¼Œç›¸é‡ç‚¹ å„å‡ºå‘ä¸€ä¸ªæŒ‡é’ˆ ç›¸é‡ç‚¹å°±æ˜¯å…¥ç¯ç‚¹
         while (head != slow.next) {
             head = head.next;
             slow = slow.next;

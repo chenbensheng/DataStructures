@@ -18,8 +18,7 @@ package com.leetcode.editor.cn;
 
 import com.alibaba.fastjson.JSON;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TwoSum{
    public static void main(String[] args) {
@@ -52,26 +51,57 @@ class Solution {
      * @param target
      * @return
      */
-   /* public int[] twoSum(int[] nums, int target) {
-        if(nums.length<=0){
-            return null;
-        }
-        int i=0, j=nums.length-1;
+   public int[] twoSum2(int[] nums, int target) {
+       if(nums.length<=0){
+           return null;
+       }
+       //排序
+       Arrays.sort(nums);
+       int i=0;
+       int j = nums.length-1;
+       while(i<=j){
+           int sum=nums[i]+nums[j];
+           if(sum==target){
+               return new int[]{i,j};
+           }else if (sum < target ){
+               i++;
+           }else {
+               j--;
+           }
+       }
+       return null;
+   }
 
-        while (i<=j){
-            int sum =nums[i]+nums[j];
-            if(sum==target){
-                return new int[]{i, j};
-            }else if (sum <target){
-                i++;
-            }else {
+    /**
+    * 满足两数之和的全部记录下来  并输出
+    */
+   public List<int[]> twoSum3(int[] nums, int target) {
+       int i =0;
+       int j=nums.length-1;
+       List<int[]> res = new ArrayList<>();
+       while(i<=j){
+           int sum = nums[i]+nums[j];
+           int left=nums[i];
+           int right=nums[j];
+           if(sum < target){
+               i++;
+           }else if(sum > target){
                 j--;
-            }
-        }
-        return null;
-    }*/
+           }else {
+               int[] member= new int[]{i,j};
+               res.add(member);
+               while(i<j&&nums[i]==left){
+                   i++;
+               }
+               while(i<j&&nums[j]==right){
+                   j--;
+               }
+           }
+       }
+       return res;
+   }
 
-}
+   }
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

@@ -44,8 +44,12 @@ public class MinimumDepthOfBinaryTree{
  *         this.right = right;
  *     }
  * }
+ *
+ *
  */
 class Solution {
+
+    //广度优先遍历
     public int minDepth(TreeNode root) {
         if(root==null){
             return 0;
@@ -72,7 +76,35 @@ class Solution {
         }
         return dept;
     }
-}
-//leetcode submit region end(Prohibit modification and deletion)
+    // 深度优先遍历 DFS
+    public int minDepth2(TreeNode root) {
+        if(root==null){
+            return 0;
+        }
+        if(root.left==null&& root.right==null){
+            return 1;
+        }
+        int ans=Integer.MAX_VALUE;
+        if(root.left!=null){
+            int left = minDepth2(root.left);
+            ans=Math.min(left,ans);
+        }
+        if(root.right!=null){
+            int right = minDepth2(root.right);
+            ans=Math.min(right,ans);
+        }
+        //每次要累加+1
+        return ans+1;
+    }
+
+    public int minDepth3(TreeNode root) {
+        if (root == null) return 0;
+        int left = minDepth3(root.left);
+        int right = minDepth3(root.right);
+        if (left == 0 || right == 0) return left + right + 1;
+        return Math.min(left, right) + 1;
+    }
+
+    }
 
 }

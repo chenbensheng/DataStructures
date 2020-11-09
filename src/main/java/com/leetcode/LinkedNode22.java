@@ -2,7 +2,6 @@ package com.leetcode;
 
 
 /**
- * 链表中倒数第 k 个节点
  */
 public class LinkedNode22 {
 
