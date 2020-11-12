@@ -30,7 +30,7 @@ public class MergeTwoSortedLists{
  * }
  */
 class Solution {
-    /**
+    /** 将两个升序链表合并为一个新的 升序 链表并返回
      * 设定一个哨兵节点 prehead
      */
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {

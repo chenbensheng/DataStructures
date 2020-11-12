@@ -29,9 +29,10 @@ public class KthLargestElementInAnArray{
 
 
    }
-    //leetcode submit region begin(Prohibit modification and deletion)
+    //
 class Solution {
         /**
+         *  在未排序的数组中找到第 k 个最大的元素。
          * 时间复杂度 O(NlogK)，空间复杂度 O(K)
          */
     public int findKthLargest(int[] nums, int k) {

@@ -11,14 +11,12 @@ public class InsertSort {
         int[] arr = {5, 1, 7, 3, 1, 6, 9, 4};
 
         insertSort(arr);
-
         for (int i : arr) {
             System.out.print(i + "\t");
         }
     }
     
     private static void insertSort(int[] arr){
-
         for (int i = 1; i < arr.length ; i++) {
             int j=i;
             while (j>0){

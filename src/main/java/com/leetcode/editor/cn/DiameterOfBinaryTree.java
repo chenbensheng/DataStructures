@@ -41,12 +41,10 @@ public class DiameterOfBinaryTree{
 class Solution {
     //设置全局变量ans
     int max = 0;
-
     public int diameterOfBinaryTree(TreeNode root) {
         depth(root);
         return max;
     }
-
     public int depth(TreeNode root) {
         if (root == null) {
             return 0;

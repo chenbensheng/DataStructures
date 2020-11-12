@@ -1,7 +1,7 @@
 package com.leetcode;
 
 /**
- * 验证是否为二叉查找数
+ * 验证是否为二叉查找树
  */
 public class ValidBST_98 {
 
@@ -9,13 +9,24 @@ public class ValidBST_98 {
         return isValid(root,null,null);
     }
 
-    public boolean isValid(TreeNode root,Integer min,Integer max) {
-        if(root==null){
+    public boolean isValid(TreeNode node,Integer min,Integer max) {
+        if (node == null) {
             return true;
         }
-        if (min!= null && root.val<=min) return false;
-        if (max!= null && root.val>=max) return false;
-
-        return isValid(root.left,min,root.val)&& isValid(root.right,root.val,max);
+        //父节点
+        int val = node.val;
+        if(min!=null && val<=min){
+            return false;
+        }
+        if(max!=null && val>=max){
+            return false;
+        }
+        if(!isValid(node.right,val,max)){
+            return false;
+        }
+        if(!isValid(node.left,min,val)){
+            return false;
+        }
+        return true;
     }
 }

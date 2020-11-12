@@ -31,21 +31,21 @@ public class MergeSort {
 
     public static void merge(int[] arr,int low,int mid,int high,int[] tmp){
         int i = 0;
-        int j = low,k = mid+1;  //左边序列和右边序列起始索引
-        while(j <= mid && k <= high){
-            if(arr[j] < arr[k]){
-                tmp[i++] = arr[j++];
+        int left = low,right = mid+1;  //左边序列和右边序列起始索引
+        while(left <= mid && right <= high){
+            if(arr[left] < arr[right]){
+                tmp[i++] = arr[left++];
             }else{
-                tmp[i++] = arr[k++];
+                tmp[i++] = arr[right++];
             }
         }
         //若左边序列还有剩余，则将其全部拷贝进tmp[]中
-        while(j <= mid){
-            tmp[i++] = arr[j++];
+        while(left <= mid){
+            tmp[i++] = arr[left++];
         }
         //若右边序列还有剩余，则将其全部拷贝进tmp[]中
-        while(k <= high){
-            tmp[i++] = arr[k++];
+        while(right <= high){
+            tmp[i++] = arr[right++];
         }
 
         for(int t=0;t<i;t++){
