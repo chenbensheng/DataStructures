@@ -31,10 +31,10 @@ public class KthLargestElementInAnArray{
    }
     //
 class Solution {
-        /**
-         *  在未排序的数组中找到第 k 个最大的元素。
-         * 时间复杂度 O(NlogK)，空间复杂度 O(K)
-         */
+    /**
+     *  在未排序的数组中找到第 k 个最大的元素。
+     * 时间复杂度 O(NlogK)，空间复杂度 O(K)
+     */
     public int findKthLargest(int[] nums, int k) {
         //PriorityQueue通过二叉小顶堆实现 保证每次取出都是最小值
         PriorityQueue<Integer> pq = new PriorityQueue<>();

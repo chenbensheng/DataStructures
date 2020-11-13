@@ -73,8 +73,8 @@ public class LinkedListCycle{
  * }
  */
 public class Solution {
+    //给定一个链表，判断链表中是否有环
     public boolean hasCycle(ListNode head) {
-
         if (head == null || head.next == null) {
             return false;
         }

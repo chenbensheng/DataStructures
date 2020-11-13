@@ -44,6 +44,7 @@ public class InvertBinaryTree{
  * }
  */
 class Solution {
+    //翻转一棵二叉树
     public TreeNode invertTree(TreeNode root) {
         if(root==null){
             return null;
