@@ -1,6 +1,4 @@
-package com.atguigu.sort;
-
-import com.alibaba.fastjson.JSON;
+package com.sort;
 
 /**
  *  归并排序

@@ -6,6 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ThreeNum_15 {
+    /**
+     * 三数之和等于0
+     * @param args
+     */
     public static void main(String[] args) {
         int[] nums = {-3, 0, 1, 1, 2, 2, -1, -4};
         List<List<Integer>> res = new ArrayList<>();

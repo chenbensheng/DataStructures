@@ -1,4 +1,4 @@
-package com.atguigu.search;
+package com.search;
 
 import java.util.ArrayList;
 import java.util.List;

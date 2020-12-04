@@ -1,6 +1,4 @@
-package com.atguigu.search;
-
-import java.util.Arrays;
+package com.search;
 
 public class InsertValueSearch {
 
@@ -21,17 +19,17 @@ public class InsertValueSearch {
 	}
 	
 	public static int binarySearch(int[] arr, int left, int right, int findVal) {
-		System.out.println("¶ş·Ö²éÕÒ±»µ÷ÓÃ~");
-		// µ± left > right Ê±£¬ËµÃ÷µİ¹éÕû¸öÊı×é£¬µ«ÊÇÃ»ÓĞÕÒµ½
+		System.out.println("ï¿½ï¿½ï¿½Ö²ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½~");
+		// ï¿½ï¿½ left > right Ê±ï¿½ï¿½Ëµï¿½ï¿½ï¿½İ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½
 		if (left > right) {
 			return -1;
 		}
 		int mid = (left + right) / 2;
 		int midVal = arr[mid];
 
-		if (findVal > midVal) { // Ïò ÓÒµİ¹é
+		if (findVal > midVal) { // ï¿½ï¿½ ï¿½Òµİ¹ï¿½
 			return binarySearch(arr, mid + 1, right, findVal);
-		} else if (findVal < midVal) { // Ïò×óµİ¹é
+		} else if (findVal < midVal) { // ï¿½ï¿½ï¿½ï¿½İ¹ï¿½
 			return binarySearch(arr, left, mid - 1, findVal);
 		} else {
 
@@ -40,32 +38,32 @@ public class InsertValueSearch {
 
 	}
 
-	//±àĞ´²åÖµ²éÕÒËã·¨
-	//ËµÃ÷£º²åÖµ²éÕÒËã·¨£¬Ò²ÒªÇóÊı×éÊÇÓĞĞòµÄ
+	//ï¿½ï¿½Ğ´ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ã·¨
+	//Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ã·¨ï¿½ï¿½Ò²Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	/**
 	 * 
-	 * @param arr Êı×é
-	 * @param left ×ó±ßË÷Òı
-	 * @param right ÓÒ±ßË÷Òı
-	 * @param findVal ²éÕÒÖµ
-	 * @return Èç¹ûÕÒµ½£¬¾Í·µ»Ø¶ÔÓ¦µÄÏÂ±ê£¬Èç¹ûÃ»ÓĞÕÒµ½£¬·µ»Ø-1
+	 * @param arr ï¿½ï¿½ï¿½ï¿½
+	 * @param left ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param right ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param findVal ï¿½ï¿½ï¿½ï¿½Öµ
+	 * @return ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ø¶ï¿½Ó¦ï¿½ï¿½ï¿½Â±ê£¬ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1
 	 */
 	public static int insertValueSearch(int[] arr, int left, int right, int findVal) { 
 
-		System.out.println("²åÖµ²éÕÒ´ÎÊı~~");
+		System.out.println("ï¿½ï¿½Öµï¿½ï¿½ï¿½Ò´ï¿½ï¿½ï¿½~~");
 		
-		//×¢Òâ£ºfindVal < arr[0]  ºÍ  findVal > arr[arr.length - 1] ±ØĞëĞèÒª
-		//·ñÔòÎÒÃÇµÃµ½µÄ mid ¿ÉÄÜÔ½½ç
+		//×¢ï¿½â£ºfindVal < arr[0]  ï¿½ï¿½  findVal > arr[arr.length - 1] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÃµï¿½ï¿½ï¿½ mid ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½
 		if (left > right || findVal < arr[0] || findVal > arr[arr.length - 1]) {
 			return -1;
 		}
 
-		// Çó³ömid, ×ÔÊÊÓ¦
+		// ï¿½ï¿½ï¿½mid, ï¿½ï¿½ï¿½ï¿½Ó¦
 		int mid = left + (right - left) * (findVal - arr[left]) / (arr[right] - arr[left]);
 		int midVal = arr[mid];
-		if (findVal > midVal) { // ËµÃ÷Ó¦¸ÃÏòÓÒ±ßµİ¹é
+		if (findVal > midVal) { // Ëµï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ò±ßµİ¹ï¿½
 			return insertValueSearch(arr, mid + 1, right, findVal);
-		} else if (findVal < midVal) { // ËµÃ÷Ïò×óµİ¹é²éÕÒ
+		} else if (findVal < midVal) { // Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İ¹ï¿½ï¿½ï¿½ï¿½
 			return insertValueSearch(arr, left, mid - 1, findVal);
 		} else {
 			return mid;
